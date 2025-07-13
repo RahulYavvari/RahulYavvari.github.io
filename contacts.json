@@ -1,0 +1,6 @@
+[
+  { "label": "GitHub", "url": "https://github.com/username" },
+  { "label": "LinkedIn", "url": "https://linkedin.com/in/username" },
+  { "label": "X", "url": "https://twitter.com/username" },
+  { "label": "Email", "url": "mailto:you@example.com" }
+] 

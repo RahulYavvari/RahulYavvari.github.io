@@ -1,0 +1,15 @@
+[
+  {
+    "company": "RevoltronX",
+    "role": "Software Developer Intern",
+    "location": "Remote, IN",
+    "dates": "July 2024 - Sep 2024",
+    "bullets": [
+      "Built a dynamic Events Dashboard using Next.js, GraphQL, and Tailwind CSS to serve real-time event data.",
+      "Automated social media scheduling by developing a post automator using AWS SQS, Lambda, and a custom admin dashboard, reducing manual posting overhead.",
+      "Fixed a timezone bug in countdowns, ensuring accurate time display across global regions beyond IST defaults.",
+      "Wrote SQL queries and connected backend data to frontend views in React-based admin dashboards.",
+      "Learned and applied Tailwind CSS consistently, reducing layout issues and speeding up development in multi-dev workflows."
+    ]
+  }
+] 

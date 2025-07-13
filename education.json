@@ -1,0 +1,20 @@
+[
+  {
+    "institution": "Indian Institute of Information Technology, Guwahati",
+    "degree": "Bachelor of Technology - Electronics & Communication",
+    "dates": "Dec 2021 - May 2025",
+    "gpa": "7.69",
+    "related_coursework": [
+      "Digital Signal Processing",
+      "VLSI Design",
+      "Embedded Systems",
+      "Data Structures & Algorithms",
+      "Computer Networks"
+    ],
+    "bullets": [
+      "Organized and led the annual tech fest coding competition.",
+      "Completed a capstone project on IoT-based smart home automation.",
+      "Served as class representative for two semesters."
+    ]
+  }
+] 

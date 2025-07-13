@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /#education
+Disallow: /#experience
+# Allow all other pages
+Allow: / 

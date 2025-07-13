@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Project 1",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Project 1 details.",
+    "github": "#",
+    "demo": "#",
+    "image": "https://placehold.co/100"
+  },
+  {
+    "title": "Project 2",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Project 2 details.",
+    "github": "#",
+    "demo": null
+  }
+] 

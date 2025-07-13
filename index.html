@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rahul Yavvari - Blog, Projects, Portfolio</title>
+    <meta name="description" content="Rahul Yavvari's personal website and blog. Read high-quality posts, explore projects, and learn more about my experience and education.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rahulyavvari.github.io/">
+    <meta property="og:title" content="Rahul Yavvari - Blog, Projects, Portfolio">
+    <meta property="og:description" content="Rahul Yavvari's personal website and blog. Read high-quality posts, explore projects, and learn more about my experience and education.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rahulyavvari.github.io/">
+    <meta property="og:image" content="https://rahulyavvari.github.io/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rahul Yavvari - Blog, Projects, Portfolio">
+    <meta name="twitter:description" content="Rahul Yavvari's personal website and blog. Read high-quality posts, explore projects, and learn more about my experience and education.">
+    <meta name="twitter:image" content="https://rahulyavvari.github.io/og-image.png">
+    <meta name="author" content="Rahul Yavvari">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rahul Yavvari",
+      "url": "https://rahulyavvari.github.io/",
+      "sameAs": [
+        "https://github.com/username",
+        "https://linkedin.com/in/username"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Rahul Yavvari's Blog",
+      "url": "https://rahulyavvari.github.io/",
+      "author": {
+        "@type": "Person",
+        "name": "Rahul Yavvari"
+      },
+      "description": "High-quality posts and articles by Rahul Yavvari."
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <style>
+      .markdown-body {
+        background: #fff;
+        color: #24292f;
+      }
+      .markdown-body pre, .markdown-body code {
+        background: #f6f8fa !important;
+        color: #24292f !important;
+      }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <!-- Mobile Navbar -->
+    <nav id="mobile-nav" class="md:hidden flex items-center justify-center bg-white border-b border-gray-200 px-4 py-2 sticky top-0 z-20">
+        <a href="#home" id="mobile-name" class="font-bold text-blue-900 text-2xl mx-auto cursor-pointer select-none py-2" style="text-decoration:none;">Rahul Yavvari</a>
+        <button id="burger-btn" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Open menu">
+            <svg class="w-7 h-7 text-blue-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+        </button>
+        <div id="mobile-menu" class="fixed inset-0 bg-white bg-opacity-80 backdrop-blur-md z-50 flex flex-col items-center justify-start pt-20 space-y-8 text-blue-900 font-semibold text-2xl transition-all duration-300 ease-in-out transform -translate-y-full opacity-0 pointer-events-none">
+            <button id="close-menu" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200" aria-label="Close menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
+            <a href="#home" class="block font-bold">Home</a>
+            <a href="#about" class="block font-bold">About</a>
+            <a href="#experience" class="block font-bold">Experience</a>
+            <a href="#education" class="block font-bold">Education</a>
+            <a href="#skills" class="block font-bold">Skills</a>
+            <a href="#projects" class="block font-bold">Projects</a>
+            <a href="#blog" class="block font-bold">Blog</a>
+            <a href="/resume.pdf" target="_blank" rel="noopener" class="block font-bold flex items-center justify-center gap-1">Resume
+              <svg xmlns='http://www.w3.org/2000/svg' class='inline w-7 h-7 ml-1' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-8 8h8'/></svg>
+            </a>
+            <!-- Remove the mobile profile image -->
+            <div id="mobile-contacts" class="text-center text-base mb-4 mt-auto">
+                <div id="mobile-contact-links"></div>
+                <!-- Removed location and footer as requested -->
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0 w-full">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="hidden md:flex flex-col items-center w-[220px] min-w-[180px] max-w-[260px] h-screen py-6 px-4 border-r border-gray-200 bg-white sticky top-0 z-10 overflow-y-auto scrollbar-hide">
+            <a href="#home" id="sidebar-name" class="text-xl font-bold mb-4 text-black cursor-pointer select-none" style="text-decoration:none;">Rahul Yavvari</a>
+            <img id="profile-pic" src="https://placehold.co/150" alt="Rahul Yavvari" class="w-full mb-4">
+            <ul class="w-full space-y-2 mb-6">
+                <li><a href="#home" class="block hover:underline">Home</a></li>
+                <li><a href="#about" class="block hover:underline">About</a></li>
+                <li><a href="#experience" class="block hover:underline">Experience</a></li>
+                <li><a href="#education" class="block hover:underline">Education</a></li>
+                <li><a href="#skills" class="block hover:underline">Skills</a></li>
+                <li><a href="#projects" class="block hover:underline">Projects</a></li>
+                <li><a href="#blog" class="block hover:underline">Blog</a></li>
+                <li><a href="/resume.pdf" target="_blank" rel="noopener" class="block font-semibold hover:underline flex items-center justify-center gap-1">Resume
+                  <svg xmlns='http://www.w3.org/2000/svg' class='inline w-5 h-5 ml-0.5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-8 8h8'/></svg>
+                </a></li>
+            </ul>
+            <div id="contacts" class="text-center text-sm mb-4">
+                <div id="contact-links"></div>
+                <p>Location: Your City, Country</p>
+            </div>
+            <footer class="mt-auto text-xs"><span id="sidebar-footer"></span></footer>
+        </nav>
+        <!-- Main Content -->
+        <main id="content" class="min-h-screen px-4 py-8 md:px-12"></main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var el = document.getElementById('sidebar-footer');
+        if (el && window.FOOTER_TEXT) el.innerHTML = window.FOOTER_TEXT;
+        var contactLinks = document.getElementById('contact-links');
+        var mobileContactLinks = document.getElementById('mobile-contact-links');
+        if (contactLinks && window.CONTACT_LINKS_HTML) contactLinks.innerHTML = window.CONTACT_LINKS_HTML;
+        if (mobileContactLinks && window.CONTACT_LINKS_HTML) mobileContactLinks.innerHTML = window.CONTACT_LINKS_HTML;
+      });
+    </script>
+</body>
+</html>
