@@ -8,8 +8,7 @@ const routes = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula ex eu ex dignissim, a gravida orci viverra.</p>
           <p>Phasellus nec lacus ut purus scelerisque tincidunt. Morbi at placerat eros, in tempor nunc. Integer ac nisl vel libero vulputate lacinia.</p>
         </div>
-      </div>
-    `,
+      </div>` + renderFooter(),
     skills: () => `
       <div class="max-w-2xl mx-auto px-2">
         <h1 class="text-3xl font-extrabold mb-4 text-gray-900">Skills</h1>
@@ -27,13 +26,12 @@ const routes = {
             <div class="text-gray-700">Git, Linux, Docker</div>
           </div>
         </div>
-      </div>
-    `,
+      </div>` + renderFooter(),
     // Remove hardcoded experience and education routes, and refactor projects
     experience: async () => {
       const list = await fetch('experience.json').then(r => r.json());
       const cards = list.map(exp => `
-        <li class="flex flex-row items-center gap-3 border-b border-gray-200 py-4 bg-white px-3 mb-2">
+        <li class="flex flex-row items-center gap-3 border-b border-gray-200 py-4 bg-white px-0 mb-2">
           <div class="flex-1 flex flex-col justify-center">
             <div class="font-bold text-lg mb-0.5 text-gray-900">${exp.company}</div>
             <div class="flex justify-between items-center mb-1">
@@ -47,15 +45,15 @@ const routes = {
           </div>
         </li>
       `).join('');
-      return `<div class="max-w-2xl mx-auto px-2">
+      return `<div class="max-w-2xl mx-auto px-0">
         <h1 class="text-3xl font-extrabold mb-6 text-gray-900">Experience</h1>
         <ul>${cards}</ul>
-      </div>`;
+      </div>` + renderFooter();
     },
     education: async () => {
       const list = await fetch('education.json').then(r => r.json());
       const cards = list.map(edu => `
-        <li class="flex flex-row items-center gap-3 border-b border-gray-200 py-4 bg-white px-3 mb-2">
+        <li class="flex flex-row items-center gap-3 border-b border-gray-200 py-4 bg-white px-0 mb-2">
           <div class="flex-1 flex flex-col justify-center">
             <div class="font-bold text-lg mb-0.5 text-gray-900">${edu.institution}</div>
             <div class="flex justify-between items-center mb-1">
@@ -68,10 +66,10 @@ const routes = {
           </div>
         </li>
       `).join('');
-      return `<div class="max-w-2xl mx-auto px-2">
+      return `<div class="max-w-2xl mx-auto px-0">
         <h1 class="text-3xl font-extrabold mb-6 text-gray-900">Education</h1>
         <ul>${cards}</ul>
-      </div>`;
+      </div>` + renderFooter();
     },
     projects: async () => {
       const list = await fetch('projects.json').then(r => r.json());
@@ -81,9 +79,19 @@ const routes = {
         <div class="prose max-w-none text-gray-900">
           <ul class="project-list">${cards}</ul>
         </div>
-      </div>`;
+      </div>` + renderFooter();
     },
-    blog: blogView,
+    blog: async () => {
+      const posts = await getPosts();
+      setTimeout(() => { attachBlogSearch(); attachTagClickHandlers(); applyPendingBlogTag(); }, 0);
+      return `<div class="prose max-w-none md:prose-lg lg:prose-xl text-gray-900 px-2 sm:px-0">
+        <div class='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2'>
+          <h1 class="text-3xl sm:text-3xl font-extrabold text-gray-900 m-0 mb-2">Blog</h1>
+          <input id="blog-search" type="text" placeholder="Search" autocomplete="off" class="sm:w-96 w-full px-4 py-2 border border-gray-400 bg-gray-50 text-gray-900 shadow-sm rounded focus:outline-none focus:ring-2 focus:ring-blue-200 text-base sm:text-sm mb-2 sm:mb-0" />
+        </div>
+        <ul class="blog-list">${posts.map((p, i) => formatBlog(p, i, posts.length)).join('')}</ul>
+      </div>` + renderFooter();
+    },
     post: async (file) => {
         const list = await fetch('posts/posts.json').then(r => r.json());
         const postMeta = list.find(p => p.file === file);
@@ -94,7 +102,7 @@ const routes = {
             const datePart = d.toLocaleDateString(undefined, options);
             return timeStr ? `${datePart} · ${timeStr}` : datePart;
         }
-        const tags = postMeta?.tags && postMeta.tags.length ? `<div class='flex flex-wrap gap-2 mt-1'>${postMeta.tags.map(tag => `<a href="#blog" data-tag="${tag}" class='bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded align-middle cursor-pointer tag-link'>${tag}</a>`).join('')}</div>` : '';
+        const tags = postMeta?.tags && postMeta.tags.length ? `<div class='flex flex-wrap gap-2 mt-1'>${postMeta.tags.map(tag => `<a href="#blog" data-tag="${tag}" class='bg-orange-100 text-orange-700 text-xs font-semibold px-2 py-1 rounded align-middle cursor-pointer tag-link'>${tag}</a>`).join('')}</div>` : '';
         const shareBtn = `<button id="share-btn" class="float-right mb-2 px-3 py-1 rounded bg-blue-100 text-blue-900 font-semibold hover:bg-blue-200 transition">Share</button><span id="share-feedback" class="ml-2 text-green-600 text-sm" style="display:none;">Copied!</span>`;
         setTimeout(() => {
           const btn = document.getElementById('share-btn');
@@ -187,7 +195,7 @@ async function homeView() {
       <ul class="blog-list">${posts}</ul>
       ${showMorePosts ? '<a href="#blog" class="text-blue-900 font-semibold underline hover:underline">See more...</a>' : ''}
     </section>
-    <footer class="md:hidden mt-10 text-center text-xs text-gray-500">${FOOTER_TEXT}</footer>
+    ${renderFooter()}
   `;
 }
 
@@ -285,7 +293,7 @@ function formatBlog(p, idx, arrLength) {
         return timeStr ? `${datePart} · ${timeStr}` : datePart;
     }
     const borderClass = idx === arrLength - 1 ? '' : 'border-b';
-    const tags = p.tags && p.tags.length ? `<span class='mx-1 text-gray-300'>·</span>${p.tags.map((tag, i) => `<a href="#blog" data-tag="${tag}" class='bg-green-100 text-green-700 text-[10px] font-medium px-1.5 py-0.5 rounded-sm align-middle${i > 0 ? " ml-1" : ""} cursor-pointer tag-link'>${tag}</a>`).join('')}` : '';
+    const tags = p.tags && p.tags.length ? `<span class='mx-1 text-gray-300'>·</span>${p.tags.map((tag, i) => `<a href="#blog" data-tag="${tag}" class='bg-orange-100 text-orange-700 text-[10px] font-medium px-1.5 py-0.5 rounded-sm align-middle${i > 0 ? " ml-1" : ""} cursor-pointer tag-link'>${tag}</a>`).join('')}` : '';
     const image = p.image ? `<img src="${p.image}" alt="${p.title}" class="w-full h-32 object-cover rounded mb-2 mx-auto md:mx-0 md:mb-0 md:w-32 md:h-20 flex-shrink-0">` : '';
     return `<li class="flex flex-col md:flex-row items-center gap-3 ${borderClass} border-gray-200 py-4 bg-white px-3 mb-2">
         ${image}
@@ -488,6 +496,13 @@ function applyPendingBlogTag() {
       window.PENDING_BLOG_TAG = null;
     }
   }
+}
+
+function renderFooter() {
+  return `<footer class="mt-10 text-center text-xs text-gray-500">
+    <div id="global-footer-contact-links" class="mb-2">${window.CONTACT_LINKS_HTML || ''}</div>
+    <div>${window.FOOTER_TEXT || ''}</div>
+  </footer>`;
 }
 
 

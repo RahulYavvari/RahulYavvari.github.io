@@ -64,12 +64,21 @@
       .menu-item {
         transition: all 0.4s ease-out;
       }
+      /* Style for contact links in mobile view at the top of home page */
+      #home-mobile-contact-links a {
+        color: #1e3a8a; /* Tailwind's blue-900 */
+        text-decoration: underline;
+        font-weight: normal;
+      }
+      body {
+        font-family: 'Georgia', serif, sans-serif !important;
+      }
     </style>
 </head>
 <body class="bg-white text-black">
     <!-- Mobile Navbar -->
     <nav id="mobile-nav" class="md:hidden flex items-center justify-center bg-white border-b border-gray-200 px-4 py-2 sticky top-0 z-20">
-        <a href="#home" id="mobile-name" class="font-bold text-blue-900 text-2xl mx-auto cursor-pointer select-none py-2" style="text-decoration:none;">Rahul Yavvari</a>
+        <a href="#home" id="mobile-name" class="font-bold text-black text-2xl mx-auto cursor-pointer select-none py-2" style="text-decoration:none;">Rahul Yavvari</a>
         <button id="burger-btn" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Open menu">
             <svg class="w-7 h-7 text-blue-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
         </button>
