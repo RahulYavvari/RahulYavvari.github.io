@@ -164,6 +164,7 @@ async function homeView() {
       if (homeMobileContactLinks && window.CONTACT_LINKS_HTML) {
         homeMobileContactLinks.innerHTML = window.CONTACT_LINKS_HTML;
       }
+      attachTagClickHandlers();
     }, 0);
     return `
     <div class="md:hidden flex flex-col items-center mt-2">
