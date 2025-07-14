@@ -150,7 +150,7 @@ async function homeView() {
     // Use a smaller heading for About Me on the home page
     const aboutContent = `
       <h3 class="text-xl font-bold mb-2 text-gray-500">About Me</h3>
-      <div class="prose max-w-none text-gray-900">
+      <div class="prose max-w-none text-gray-900 px-4">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula ex eu ex dignissim, a gravida orci viverra.</p>
         <p>Phasellus nec lacus ut purus scelerisque tincidunt. Morbi at placerat eros, in tempor nunc. Integer ac nisl vel libero vulputate lacinia.</p>
       </div>
