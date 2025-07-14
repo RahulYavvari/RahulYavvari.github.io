@@ -340,12 +340,32 @@ window.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('mobile-menu');
   const closeBtn = document.getElementById('close-menu');
   function openMenu() {
-    menu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-    menu.classList.add('translate-y-0', 'opacity-100');
+    menu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none', 'scale-95');
+    menu.classList.add('translate-y-0', 'opacity-100', 'scale-100');
+    document.body.classList.add('no-scroll');
+    
+    // Delay staggered animation for menu items until menu is visible
+    setTimeout(() => {
+      const menuItems = menu.querySelectorAll('.menu-item');
+      menuItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.remove('opacity-0', 'translate-y-4');
+          item.classList.add('opacity-100', 'translate-y-0');
+        }, index * 50); // 50ms delay between each item
+      });
+    }, 400); // Wait for menu to finish animating in
   }
   function closeMenu() {
-    menu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-    menu.classList.remove('translate-y-0', 'opacity-100');
+    menu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none', 'scale-95');
+    menu.classList.remove('translate-y-0', 'opacity-100', 'scale-100');
+    document.body.classList.remove('no-scroll');
+    
+    // Reset menu items
+    const menuItems = menu.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+      item.classList.add('opacity-0', 'translate-y-4');
+      item.classList.remove('opacity-100', 'translate-y-0');
+    });
   }
   if (burger && menu) {
     burger.onclick = openMenu;

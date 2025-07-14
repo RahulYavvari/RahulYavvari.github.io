@@ -55,6 +55,15 @@
       }
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      .no-scroll {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+      .menu-item {
+        transition: all 0.4s ease-out;
+      }
     </style>
 </head>
 <body class="bg-white text-black">
@@ -64,18 +73,18 @@
         <button id="burger-btn" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Open menu">
             <svg class="w-7 h-7 text-blue-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
         </button>
-        <div id="mobile-menu" class="fixed inset-0 bg-white bg-opacity-50 backdrop-blur-md z-50 flex flex-col items-center justify-start pt-20 space-y-6 text-blue-900 font-semibold text-lg transition-all duration-300 ease-in-out transform -translate-y-full opacity-0 pointer-events-none">
+        <div id="mobile-menu" class="fixed inset-0 bg-white bg-opacity-50 backdrop-blur-md z-50 flex flex-col items-center justify-start pt-20 space-y-6 text-blue-900 font-semibold text-xl transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] transform -translate-y-full opacity-0 pointer-events-none scale-95">
             <button id="close-menu" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200" aria-label="Close menu">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
-            <a href="#home" class="block font-bold">Home</a>
-            <a href="#about" class="block font-bold">About</a>
-            <a href="#experience" class="block font-bold">Experience</a>
-            <a href="#education" class="block font-bold">Education</a>
-            <a href="#skills" class="block font-bold">Skills</a>
-            <a href="#projects" class="block font-bold">Projects</a>
-            <a href="#blog" class="block font-bold">Blog</a>
-            <a href="/resume.pdf" target="_blank" rel="noopener" class="block font-bold flex items-center justify-center gap-1">Resume
+            <a href="#home" class="block font-bold menu-item opacity-0 translate-y-4">Home</a>
+            <a href="#about" class="block font-bold menu-item opacity-0 translate-y-4">About</a>
+            <a href="#experience" class="block font-bold menu-item opacity-0 translate-y-4">Experience</a>
+            <a href="#education" class="block font-bold menu-item opacity-0 translate-y-4">Education</a>
+            <a href="#skills" class="block font-bold menu-item opacity-0 translate-y-4">Skills</a>
+            <a href="#projects" class="block font-bold menu-item opacity-0 translate-y-4">Projects</a>
+            <a href="#blog" class="block font-bold menu-item opacity-0 translate-y-4">Blog</a>
+            <a href="/resume.pdf" target="_blank" rel="noopener" class="block font-bold flex items-center justify-center gap-1 menu-item opacity-0 translate-y-4">Resume
               <svg xmlns='http://www.w3.org/2000/svg' class='inline w-6 h-6 ml-1' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-8 8h8'/></svg>
             </a>
             <!-- Three dot separator -->
