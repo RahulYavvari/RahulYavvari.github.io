@@ -271,7 +271,7 @@ function attachBlogSearch() {
 function formatProj(p, idx, arrLength) {
     const borderClass = idx === arrLength - 1 ? '' : 'border-b';
     const image = p.image ? `<img src="${p.image}" alt="${p.title}" class="w-full h-32 object-cover rounded mb-2 mx-auto md:mx-0 md:mb-0 md:w-32 md:h-20 flex-shrink-0">` : '';
-    return `<li class="flex flex-col md:flex-row items-center gap-3 ${borderClass} border-gray-200 py-4 bg-white px-3 mb-2">
+    return `<li class="flex flex-col md:flex-row items-center gap-3 ${borderClass} border-gray-200 py-1 bg-white px-3">
         ${image}
         <div class="flex-1 flex flex-col justify-center w-full">
             <div class="font-bold text-lg mb-0.5 text-gray-900">${p.title}</div>
@@ -295,7 +295,7 @@ function formatBlog(p, idx, arrLength) {
     const borderClass = idx === arrLength - 1 ? '' : 'border-b';
     const tags = p.tags && p.tags.length ? `<span class='mx-1 text-gray-300'>·</span>${p.tags.map((tag, i) => `<a href="#blog" data-tag="${tag}" class='bg-orange-100 text-orange-700 text-[10px] font-medium px-1.5 py-0.5 rounded-sm align-middle${i > 0 ? " ml-1" : ""} cursor-pointer tag-link'>${tag}</a>`).join('')}` : '';
     const image = p.image ? `<img src="${p.image}" alt="${p.title}" class="w-full h-32 object-cover rounded mb-2 mx-auto md:mx-0 md:mb-0 md:w-32 md:h-20 flex-shrink-0">` : '';
-    return `<li class="flex flex-col md:flex-row items-center gap-3 ${borderClass} border-gray-200 py-4 bg-white px-3 mb-2">
+    return `<li class="flex flex-col md:flex-row items-center gap-3 ${borderClass} border-gray-200 py-1 bg-white px-3">
         ${image}
         <div class="flex-1 flex flex-col justify-center w-full">
             <a href="#post/${p.file}" class="w-auto inline-block self-start font-bold text-lg text-blue-900 hover:underline mb-0.5">${p.title}</a>
