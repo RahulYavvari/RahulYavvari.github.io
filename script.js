@@ -3,7 +3,7 @@ const routes = {
     home: homeView,
     about: () => `
       <div class="max-w-2xl mx-auto px-2">
-        <h1 class="text-3xl font-extrabold mb-4 text-gray-900">About Me</h1>
+        <h1 class="text-3xl font-extrabold mb-4 text-gray-500">About Me</h1>
         <div class="prose max-w-none text-gray-900">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula ex eu ex dignissim, a gravida orci viverra.</p>
           <p>Phasellus nec lacus ut purus scelerisque tincidunt. Morbi at placerat eros, in tempor nunc. Integer ac nisl vel libero vulputate lacinia.</p>
@@ -11,7 +11,7 @@ const routes = {
       </div>` + renderFooter(),
     skills: () => `
       <div class="max-w-2xl mx-auto px-2">
-        <h1 class="text-3xl font-extrabold mb-4 text-gray-900">Skills</h1>
+        <h1 class="text-3xl font-extrabold mb-4 text-gray-500">Skills</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
           <div>
             <div class="font-bold text-gray-800 mb-1">Programming</div>
@@ -46,7 +46,7 @@ const routes = {
         </li>
       `).join('');
       return `<div class="max-w-2xl mx-auto px-0">
-        <h1 class="text-3xl font-extrabold mb-6 text-gray-900">Experience</h1>
+        <h1 class="text-3xl font-extrabold mb-6 text-gray-500">Experience</h1>
         <ul>${cards}</ul>
       </div>` + renderFooter();
     },
@@ -67,7 +67,7 @@ const routes = {
         </li>
       `).join('');
       return `<div class="max-w-2xl mx-auto px-0">
-        <h1 class="text-3xl font-extrabold mb-6 text-gray-900">Education</h1>
+        <h1 class="text-3xl font-extrabold mb-6 text-gray-500">Education</h1>
         <ul>${cards}</ul>
       </div>` + renderFooter();
     },
@@ -75,7 +75,7 @@ const routes = {
       const list = await fetch('projects.json').then(r => r.json());
       const cards = list.map((p, i) => formatProj(p, i, list.length)).join('');
       return `<div class="max-w-2xl mx-auto px-2">
-        <h1 class="text-3xl font-extrabold mb-4 text-gray-900">Projects</h1>
+        <h1 class="text-3xl font-extrabold mb-4 text-gray-500">Projects</h1>
         <div class="prose max-w-none text-gray-900">
           <ul class="project-list">${cards}</ul>
         </div>
@@ -86,7 +86,7 @@ const routes = {
       setTimeout(() => { attachBlogSearch(); attachTagClickHandlers(); applyPendingBlogTag(); }, 0);
       return `<div class="prose max-w-none md:prose-lg lg:prose-xl text-gray-900 px-2 sm:px-0">
         <div class='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2'>
-          <h1 class="text-3xl sm:text-3xl font-extrabold text-gray-900 m-0 mb-2">Blog</h1>
+          <h1 class="text-3xl sm:text-3xl font-extrabold text-gray-500 m-0 mb-2">Blog</h1>
           <input id="blog-search" type="text" placeholder="Search" autocomplete="off" class="sm:w-96 w-full px-4 py-2 border border-gray-400 bg-gray-50 text-gray-900 shadow-sm rounded focus:outline-none focus:ring-2 focus:ring-blue-200 text-base sm:text-sm mb-2 sm:mb-0" />
         </div>
         <ul class="blog-list">${posts.map((p, i) => formatBlog(p, i, posts.length)).join('')}</ul>
@@ -149,7 +149,7 @@ window.FOOTER_TEXT = FOOTER_TEXT;
 async function homeView() {
     // Use a smaller heading for About Me on the home page
     const aboutContent = `
-      <h3 class="text-xl font-bold mb-2 text-gray-900">About Me</h3>
+      <h3 class="text-xl font-bold mb-2 text-gray-500">About Me</h3>
       <div class="prose max-w-none text-gray-900">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula ex eu ex dignissim, a gravida orci viverra.</p>
         <p>Phasellus nec lacus ut purus scelerisque tincidunt. Morbi at placerat eros, in tempor nunc. Integer ac nisl vel libero vulputate lacinia.</p>
@@ -185,13 +185,13 @@ async function homeView() {
     </div>
     <div class='flex justify-center my-2'><span class='text-gray-500 text-2xl select-none'>···</span></div>
     <section>
-      <h3 class="!text-xl !font-bold mb-4">Projects</h3>
+      <h3 class="!text-xl !font-bold mb-4 text-gray-500">Projects</h3>
       <ul class="project-list">${projs}</ul>
       ${showMoreProjects ? '<a href="#projects" class="text-blue-900 font-semibold underline hover:underline">See more...</a>' : ''}
     </section>
     <div class='flex justify-center my-2'><span class='text-gray-500 text-2xl select-none'>···</span></div>
     <section>
-      <h3 class="!text-xl !font-bold mb-4">Blog Posts</h3>
+      <h3 class="!text-xl !font-bold mb-4 text-gray-500">Blog Posts</h3>
       <ul class="blog-list">${posts}</ul>
       ${showMorePosts ? '<a href="#blog" class="text-blue-900 font-semibold underline hover:underline">See more...</a>' : ''}
     </section>
@@ -212,7 +212,7 @@ async function blogView() {
     setTimeout(() => { attachBlogSearch(); attachTagClickHandlers(); applyPendingBlogTag(); }, 0);
     return `<div class="prose max-w-none md:prose-lg lg:prose-xl text-gray-900 px-2 sm:px-0">
       <div class='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2'>
-        <h1 class="text-3xl sm:text-3xl font-extrabold text-gray-900 m-0 mb-2">Blog</h1>
+        <h1 class="text-3xl sm:text-3xl font-extrabold text-gray-500 m-0 mb-2">Blog</h1>
         <input id="blog-search" type="text" placeholder="Search" autocomplete="off" class="sm:w-96 w-full px-4 py-2 border border-gray-400 bg-gray-50 text-gray-900 shadow-sm rounded focus:outline-none focus:ring-2 focus:ring-blue-200 text-base sm:text-sm mb-2 sm:mb-0" />
       </div>
       <ul class="blog-list">${posts.map((p, i) => formatBlog(p, i, posts.length)).join('')}</ul>
